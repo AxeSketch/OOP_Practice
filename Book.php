@@ -8,11 +8,21 @@ class Book
     public $author;
     public $available;
 
-    public function __construct($isbn,$title,$author,$available){
+    public function __construct(int $isbn, String $title, String $author,int $available=0){
         $this->isbn=$isbn;
         $this->title=$title;
         $this->author=$author;
         $this->available=$available;
+    }
+
+    public function __toString(){
+        $result = $this->title . ' by ' . $this->author;
+
+        if (!$this->available) {
+            $result .= 'Not Available';
+        }
+
+        return $result;
     }
     
 
@@ -44,13 +54,10 @@ $harry_potter->title = "Harry Potter First Volume";
 $harry_potter->author = "J. K. Rowling";
 $harry_potter->available = 10;*/
 
-if ($harry_potter->getCopy()) {
+/*if ($harry_potter->getCopy()) {
     echo 'Here is your copy of ' . $harry_potter->title . '<br>';
 } else {
     echo 'Sorry it\'s gone. ';
-}
+}*/
 
-
-
-var_dump($harry_potter);
-
+echo $harry_potter;
