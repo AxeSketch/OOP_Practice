@@ -8,6 +8,14 @@ class Book
     public $author;
     public $available;
 
+    public function __construct($isbn,$title,$author,$available){
+        $this->isbn=$isbn;
+        $this->title=$title;
+        $this->author=$author;
+        $this->available=$available;
+    }
+    
+
     public function getPrintableTitle()
     {
         $result = $this->title . ' by ' . $this->author;
@@ -29,11 +37,12 @@ class Book
     }
 }
 
-$harry_potter = new Book();
-$harry_potter->isbn = 942342331321;
+$harry_potter = new Book(942342331321,"Harry Potter First Volume","J. K. Rowling",10);
+
+/*$harry_potter->isbn = 942342331321;
 $harry_potter->title = "Harry Potter First Volume";
 $harry_potter->author = "J. K. Rowling";
-$harry_potter->available = 0;
+$harry_potter->available = 10;*/
 
 if ($harry_potter->getCopy()) {
     echo 'Here is your copy of ' . $harry_potter->title . '<br>';
