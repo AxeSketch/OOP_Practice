@@ -1,5 +1,8 @@
 <?php
 
+namespace Bookstore\Domainss;
+
+
 class Book
 {
 
@@ -8,14 +11,16 @@ class Book
     public $author;
     public $available;
 
-    public function __construct(int $isbn, String $title, String $author,int $available=0){
-        $this->isbn=$isbn;
-        $this->title=$title;
-        $this->author=$author;
-        $this->available=$available;
+    public function __construct(int $isbn, String $title, String $author, int $available = 0)
+    {
+        $this->isbn = $isbn;
+        $this->title = $title;
+        $this->author = $author;
+        $this->available = $available;
     }
 
-    public function __toString(){
+    public function __toString()
+    {
         $result = $this->title . ' by ' . $this->author;
 
         if (!$this->available) {
@@ -24,7 +29,7 @@ class Book
 
         return $result;
     }
-    
+
 
     public function getPrintableTitle()
     {
@@ -44,10 +49,10 @@ class Book
             $this->available--;
             return true;
         }
-    }
+    }x
 }
 
-$harry_potter = new Book(942342331321,"Harry Potter First Volume","J. K. Rowling",10);
+$harry_potter = new Book(942342331321, "Harry Potter First Volume", "J. K. Rowling", 10);
 
 /*$harry_potter->isbn = 942342331321;
 $harry_potter->title = "Harry Potter First Volume";
