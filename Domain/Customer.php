@@ -1,25 +1,29 @@
 <?php
- namespace Bookstore\Domain;
+namespace Bookstore\Domain;
 
-class Customer
+class Customer extends Person
 {
 
-    private static $lastId=0;
+    private static $lastId = 0;
 
-    private $id;
-    private $firstname;
+    //private $id;
+    //private $firstname;
     private $surname;
     private $email;
 
     public function __construct($id, $firstname, $surname, $email)
     {
         //$this->id = $id;
-        if($id == null){
-            $this->id=++self::$lastId;
-        } else{
-            $this->id=$id;
-            if($id>self::$lastId){
-                self::$lastId=$id;
+
+        parent::__construct($firstname, $surname);
+
+
+        if ($id == null) {
+            $this->id = ++self::$lastId;
+        } else {
+            $this->id = $id;
+            if ($id > self::$lastId) {
+                self::$lastId = $id;
             }
         }
         $this->firstname = $firstname;
@@ -27,13 +31,14 @@ class Customer
         $this->email = $email;
     }
 
-    public static function getLastId(){
+    public static function getLastId()
+    {
         return self::$lastId;
     }
 
     public function getFirstName()
     {
-        return $this->firstname;    
+        return $this->firstname;
     }
 
     public function getSurname()
@@ -55,5 +60,10 @@ class Customer
     public function setEmail(String $email)
     {
         $this->email = $email;
+    }
+
+    public function sayHi()
+    {
+        return 'Heyy ' . $this->firstname . parent::sayHi();
     }
 }
