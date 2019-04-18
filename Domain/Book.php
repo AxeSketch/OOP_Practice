@@ -1,6 +1,6 @@
 <?php
 
-namespace Bookstore\Domainss;
+namespace Bookstore\Domain;
 
 
 class Book
@@ -49,7 +49,7 @@ class Book
             $this->available--;
             return true;
         }
-    }x
+    }
 }
 
 $harry_potter = new Book(942342331321, "Harry Potter First Volume", "J. K. Rowling", 10);

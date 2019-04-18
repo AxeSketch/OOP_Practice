@@ -1,4 +1,5 @@
 <?php
+ namespace Bookstore\Domain;
 
 class Customer
 {
@@ -32,7 +33,7 @@ class Customer
 
     public function getFirstName()
     {
-        return $this->firstname;
+        return $this->firstname;    
     }
 
     public function getSurname()

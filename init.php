@@ -1,13 +1,27 @@
 <?php
 
+use Bookstore\Domain\Book;
+use Bookstore\Domain\Customer;
 
-require_once __DIR__ . '/Book.php';
-require_once __DIR__ . '/Customer.php';
+function autoloader($classname)
+{
+    $lastSlash = strpos($classname, '\\') + 1;
+    $classname=substr($classname,$lastSlash);
+    $directory=str_replace('\\','/',$classname);
+    $filename=__DIR__ . '/' . $directory . '.php';
+    require_once $filename;
+}
+
+spl_autoload_register('autoloader');
+
+
+require_once __DIR__ . '/Domain/Book.php';
+require_once __DIR__ . '/Domain/Customer.php';
 
 $harry_potter = new Book(942342331321, "Harry Potter First Volume", "J. K. Rowling", 10);
 
 $first_customer = new Customer(1, "Alex", "Tom", "alextom@email.com");
-$second_customer=new Customer(null,"Howard","John","howard@john.com");
+$second_customer = new Customer(null, "Howard", "John", "howard@john.com");
 //$third=new Customer(5,"Rock","Nills","rcok@nill.com");
 
 //var_dump($harry_potter);
